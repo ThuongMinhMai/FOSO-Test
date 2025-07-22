@@ -1,7 +1,7 @@
 import InfiniteScroll from 'react-infinite-scroll-component'
-import ProductCard from './ProductCard.tsx'
 import LoadingSpinner from '../../components/common/LoadingSpinner.tsx'
 import { useProducts } from '../../hooks/useProducts.ts'
+import ProductCard from './ProductCard.tsx'
 import ProductHeader from './ProductHeader.tsx'
 
 function ProductGrid() {
@@ -49,4 +49,6 @@ function ProductGrid() {
     </div>
   )
 }
+
+
 export default ProductGrid

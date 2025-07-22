@@ -1,8 +1,11 @@
 import { Camera, Search, CircleUserRound } from 'lucide-react'
 import logo from '../../../assets/logo.png'
 import CartDropDown from '../../../features/cart/CartDropDown'
+import { useState } from 'react'
+import { useProducts } from '../../../hooks/useProducts'
 
 const HeaderMain = () => {
+
   return (
     <div className='left-0 w-full z-50 bg-white'>
       <div className='max-w-7xl mx-auto px-4 py-10'>
@@ -16,6 +19,7 @@ const HeaderMain = () => {
               <input
                 type='text'
                 placeholder='Tìm kiếm sản phẩm...'
+               
                 className='w-full h-12 px-4 py-2 pl-4 pr-12 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent'
               />
               <div className='absolute right-2 top-1/2 transform -translate-y-1/2 flex'>

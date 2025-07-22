@@ -13,7 +13,7 @@ function App() {
       <PromoBanner />
       <div className='max-w-7xl mx-auto flex mt-10'>
         <Sidebar />
-        <main className='flex justify-center items-center'>
+        <main className='flex justify-center items-start'>
           <ProductGrid />
         </main>
       </div>

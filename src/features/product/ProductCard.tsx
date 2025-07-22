@@ -1,6 +1,7 @@
-import { Heart, ShoppingCart } from 'lucide-react'
-import { Product } from '../../types'
+import { ShoppingCart } from 'lucide-react'
 import { useCart } from '../../contexts/CartContext'
+import { Product } from '../../types'
+import { formatPrice } from '../../lib/utils'
 
 interface ProductCardProps {
   product: Product
@@ -10,9 +11,7 @@ interface ProductCardProps {
 }
 
 function ProductCard({ product, size, onAddToCart, showButtonBuy = false }: ProductCardProps) {
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('vi-VN').format(price) + ' ₫'
-  }
+  
   const { addToCart } = useCart()
   return (
     <div className='group  bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative flex flex-col'>
@@ -35,7 +34,7 @@ function ProductCard({ product, size, onAddToCart, showButtonBuy = false }: Prod
 
       <div className='flex flex-col justify-between flex-1 p-4'>
         <div>
-          <h3 className='text-sm font-medium text-gray-800 mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200'>
+          <h3 className='text-lg font-medium text-gray-800 mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200'>
             {product.name}
           </h3>
           <div className='flex items-center justify-between mb-2'>

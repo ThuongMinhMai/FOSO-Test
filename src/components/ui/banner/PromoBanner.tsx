@@ -1,6 +1,6 @@
-import bannerImage from '../../assets/banner.png'
-import { products } from '../../data/mockData'
-import ProductCard from '../Product/ProductCard'
+import bannerImage from '../../../assets/banner.png'
+import { products } from '../../../data/mockData'
+import ProductCard from '../../../features/product/ProductCard'
 import Slider from 'react-slick'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import 'slick-carousel/slick/slick.css'
@@ -49,14 +49,12 @@ function PromoBanner() {
   }
 
   return (
-    <div className='max-w-7xl mx-auto mt-10 bg-primary py-10 relative overflow-hidden rounded-lg'>
-      {/* Banner nội dung */}
-      <div className='mt-16'>
+    <div className='max-w-7xl mx-auto bg-primary relative overflow-hidden rounded-lg'>
+      <div className=''>
         <img src={bannerImage} alt='Banner' className='w-full' />
       </div>
 
-      {/* Carousel sản phẩm */}
-      <div className='max-w-7xl mx-auto mt-10 px-6 relative'>
+      <div className='max-w-7xl mx-auto mt-10 px-6 relative mb-10'>
         <Slider {...settings}>
           {topProducts.map((product) => (
             <div key={product.id} className='px-2'>

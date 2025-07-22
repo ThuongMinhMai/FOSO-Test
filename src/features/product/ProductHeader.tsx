@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from 'lucide-react'
 import React, { useState } from 'react'
-import { TagButton } from './TagButton' // <-- chỉnh đường dẫn đúng theo vị trí file
+import { TagButton } from '../../components/ui/buttons/TagButton'
 
 const ProductHeader: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('Liên quan')
@@ -20,7 +20,7 @@ const ProductHeader: React.FC = () => {
   }
 
   return (
-    <div className='w-full border-b bg-white border-gray-200 sticky top-48 z-10'>
+    <div className='w-full border-b bg-white border-gray-200 sticky top-0 z-10 rounded-t-lg'>
       <div className='container mx-auto px-4'>
         <div className='flex items-center justify-between py-4'>
           <h1 className='text-lg font-medium text-gray-800'>Danh sách sản phẩm</h1>
@@ -54,7 +54,7 @@ const ProductHeader: React.FC = () => {
                     key={option}
                     onClick={() => handlePriceSort(option)}
                     className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-50 transition-colors duration-150 ${
-                      priceSort === option ? 'text-blue-500 bg-blue-50' : 'text-gray-700'
+                      priceSort === option ? 'text-primary bg-blue-50' : 'text-gray-700'
                     }`}
                   >
                     {option}

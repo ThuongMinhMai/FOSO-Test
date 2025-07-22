@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Product } from '../types';
-import { products as mockProducts } from '../data/mockData'; // renamed để tránh trùng với state
+import { products as mockProducts } from '../data/mockData'; 
 
 const PRODUCTS_PER_PAGE = 8;
 export const useProducts = () => {
@@ -33,7 +33,6 @@ export const useProducts = () => {
         setHasMore(false);
       } else {
         setProducts(prev => {
-          // Lọc bỏ sản phẩm trùng lặp
           const uniqueNewProducts = newProducts.filter(
             newProduct => !prev.some(product => product.id === newProduct.id)
           );

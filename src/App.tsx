@@ -1,11 +1,10 @@
-import PromoBanner from './components/Banner/PromoBanner'
-import Header from './components/Header/Header'
-import FeaturedProducts from './components/Product/FeaturedProducts'
-import ProductGrid from './components/Product/ProductGrid'
-import Footer from './components/Layout/Footer'
-import ScrollToTop from './components/Layout/ScrollToTop'
-import Sidebar from './components/Layout/Sidebar'
-import ShippingBenefits from './components/Product/ShippingBenefits'
+import PromoBanner from './components/ui/banner/PromoBanner'
+import ProductGrid from './features/product/ProductGrid'
+import Footer from './components/layout/Footer'
+import ScrollToTop from './components/common/ScrollToTop'
+import Sidebar from './components/layout/Sidebar'
+import ShippingBenefits from './features/shipping/ShippingBenefits'
+import Header from './components/layout/header/Header'
 
 function App() {
   return (
@@ -14,12 +13,11 @@ function App() {
       <PromoBanner />
       <div className='max-w-7xl mx-auto flex mt-10'>
         <Sidebar />
-        <main className= 'flex justify-center items-center'>
-
+        <main className='flex justify-center items-center'>
           <ProductGrid />
         </main>
       </div>
-      <ShippingBenefits/>
+      <ShippingBenefits />
       <Footer />
       <ScrollToTop />
     </div>

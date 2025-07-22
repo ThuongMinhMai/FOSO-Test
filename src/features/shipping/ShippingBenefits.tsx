@@ -4,22 +4,22 @@ import { Truck, Headphones, Package, RotateCcw } from 'lucide-react';
 const ShippingBenefits: React.FC = () => {
   const benefits = [
     {
-      icon: <Truck className="w-8 h-8 text-blue-500" />,
+      icon: <Truck className="w-8 h-8 text-primary" />,
       title: "Miễn phí vận chuyển",
       description: "Với hóa đơn từ 1 triệu"
     },
     {
-      icon: <Headphones className="w-8 h-8 text-blue-500" />,
+      icon: <Headphones className="w-8 h-8 text-primary" />,
       title: "Hỗ trợ 24/7",
       description: "Đội ngũ CSKH tận tâm sẵn sàng lắng nghe và phục vụ tận tâm"
     },
     {
-      icon: <Package className="w-8 h-8 text-blue-500" />,
+      icon: <Package className="w-8 h-8 text-primary" />,
       title: "Giao hàng nhanh 2h",
       description: "Trong vòng bán kính 10km nội thành TP HCM"
     },
     {
-      icon: <RotateCcw className="w-8 h-8 text-blue-500" />,
+      icon: <RotateCcw className="w-8 h-8 text-primary" />,
       title: "30 ngày đổi trả",
       description: "Hoàn tiền 100% nếu phát sinh lỗi từ NSX hoặc đơn vị vận chuyển"
     }

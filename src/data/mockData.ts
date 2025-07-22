@@ -1,9 +1,6 @@
+import { getRandomProducts } from '../lib/utils';
 import { Category, Product } from '../types';
-const getRandomProducts = (pool: Product[]): Product[] => {
-  const shuffled = [...pool].sort(() => Math.random() - 0.5);      
-  const count = Math.floor(Math.random() * 3) + 3;                
-  return shuffled.slice(0, count);
-};
+
 
 
 export const products: Product[] = [

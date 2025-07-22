@@ -1,16 +1,13 @@
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, ShoppingCart, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ShoppingCart, X } from 'lucide-react'
 import { useState } from 'react'
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
 import { useCart } from '../../contexts/CartContext'
+import { formatPrice } from '../../lib/utils'
 function CartDropDown() {
   const [isOpen, setIsOpen] = useState(false)
   const { cartItems, getTotalItems, getTotalPrice, removeFromCart } = useCart()
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('vi-VN').format(price) + ' ₫'
-  }
 
   function ArrowLeft(props: any) {
     const { onClick } = props

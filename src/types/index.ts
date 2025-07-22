@@ -10,6 +10,9 @@ export interface Product {
   brand:string;
   year: number;
   country:string
+  createdAt: string;
+  sold:number;
+  featured:boolean
 }
 export interface Subcategory {
   id: string;
@@ -35,3 +38,6 @@ export interface User {
   name: string;
   avatar?: string;
 }
+
+export type FilterType = 'Liên quan' | 'Mới nhất' | 'Bán chạy' | 'Nổi bật'
+export type SortType = 'Giá: Thấp → Cao' | 'Giá: Cao → Thấp'

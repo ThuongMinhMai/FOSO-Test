@@ -3,6 +3,288 @@ import { Category, Product } from '../types';
 
 
 
+// export const products: Product[] = [
+//   {
+//     id: '1',
+//     name: 'Lọc gió động cơ Air Filter - Chevrolet Captiva',
+//     price: 299000,
+//     originalPrice: 350000,
+//     discount: 15,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'Chevrolet',
+//     year: 2022,
+//     country: 'USA'
+//   },
+//   {
+//     id: '2', 
+//     name: 'Lọc dầu động cơ Oil Filter - Toyota Camry',
+//     price: 199000,
+//     originalPrice: 249000,
+//     discount: 20,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Dầu',
+//     inStock: true,
+//     brand: 'Toyota',
+//     year: 2023,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '3',
+//     name: 'Lọc nhiên liệu Fuel Filter - Honda Civic', 
+//     price: 259000,
+//     originalPrice: 299000,
+//     discount: 13,
+//         image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Nhiên Liệu',
+//     inStock: true,
+//     brand: 'Honda',
+//     year: 2021,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '4',
+//     name: 'Lọc cabin Cabin Filter - Mazda CX-5',
+//     price: 189000,
+//     originalPrice: 220000, 
+//     discount: 14,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Trong Cabin',
+//     inStock: true,
+//     brand: 'Mazda',
+//     year: 2022,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '5',
+//     name: 'Lọc gió thể thao K&N Air Filter - BMW E90',
+//     price: 899000,
+//     originalPrice: 1099000,
+//     discount: 18,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'BMW',
+//     year: 2020,
+//     country: 'Germany'
+//   },
+//   {
+//     id: '6',
+//     name: 'Lọc gió động cơ - Hyundai Accent',
+//     price: 250000,
+//     originalPrice: 300000,
+//     discount: 17,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'Hyundai',
+//     year: 2021,
+//     country: 'Korea'
+//   },
+//   {
+//     id: '7',
+//     name: 'Lọc dầu động cơ - Ford Ranger',
+//     price: 220000,
+//     originalPrice: 270000,
+//     discount: 19,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Dầu',
+//     inStock: true,
+//     brand: 'Ford',
+//     year: 2023,
+//     country: 'USA'
+//   },
+//   {
+//     id: '8',
+//     name: 'Lọc nhiên liệu - Mitsubishi Xpander',
+//     price: 280000,
+//     originalPrice: 320000,
+//     discount: 13,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Nhiên Liệu',
+//     inStock: true,
+//     brand: 'Mitsubishi',
+//     year: 2022,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '9',
+//     name: 'Lọc cabin - Toyota Fortuner',
+//     price: 210000,
+//     originalPrice: 250000,
+//     discount: 16,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Trong Cabin',
+//     inStock: true,
+//     brand: 'Toyota',
+//     year: 2021,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '10',
+//     name: 'Lọc gió thể thao - Subaru Forester',
+//     price: 950000,
+//     originalPrice: 1150000,
+//     discount: 17,
+//     image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+  
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'Subaru',
+//     year: 2022,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '11',
+//     name: 'Lọc gió động cơ - Mercedes C200',
+//     price: 1200000,
+//     originalPrice: 1400000,
+//     discount: 14,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'Mercedes',
+//     year: 2023,
+//     country: 'Germany'
+//   },
+//   {
+//     id: '12',
+//     name: 'Lọc dầu động cơ - Kia Seltos',
+//     price: 230000,
+//     originalPrice: 280000,
+//     discount: 18,
+//         image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Dầu',
+//     inStock: true,
+//     brand: 'Kia',
+//     year: 2022,
+//     country: 'Korea'
+//   },
+//   {
+//     id: '13',
+//     name: 'Lọc nhiên liệu - Volkswagen Tiguan',
+//     price: 320000,
+//     originalPrice: 380000,
+//     discount: 16,
+//        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Nhiên Liệu',
+//     inStock: true,
+//     brand: 'Volkswagen',
+//     year: 2021,
+//     country: 'Germany'
+//   },
+//   {
+//     id: '14',
+//     name: 'Lọc cabin - Nissan X-Trail',
+//     price: 195000,
+//     originalPrice: 230000,
+//     discount: 15,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Trong Cabin',
+//     inStock: true,
+//     brand: 'Nissan',
+//     year: 2022,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '15',
+//     name: 'Lọc gió thể thao - Audi A4',
+//     price: 1100000,
+//     originalPrice: 1300000,
+//     discount: 15,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'Audi',
+//     year: 2023,
+//     country: 'Germany'
+//   },
+//   {
+//     id: '16',
+//     name: 'Lọc gió động cơ - Lexus RX350',
+//     price: 850000,
+//     originalPrice: 950000,
+//     discount: 11,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'Lexus',
+//     year: 2021,
+//     country: 'Japan'
+//   },
+//   {
+//     id: '17',
+//     name: 'Lọc dầu động cơ - Peugeot 3008',
+//     price: 270000,
+//     originalPrice: 320000,
+//     discount: 16,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Dầu',
+//     inStock: true,
+//     brand: 'Peugeot',
+//     year: 2022,
+//     country: 'France'
+//   },
+//   {
+//     id: '18',
+//     name: 'Lọc nhiên liệu - Volvo XC60',
+//     price: 350000,
+//     originalPrice: 400000,
+//     discount: 13,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Nhiên Liệu',
+//     inStock: true,
+//     brand: 'Volvo',
+//     year: 2023,
+//     country: 'Sweden'
+//   },
+//   {
+//     id: '19',
+//     name: 'Lọc cabin - Land Rover Discovery',
+//     price: 310000,
+//     originalPrice: 370000,
+//     discount: 16,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Trong Cabin',
+//     inStock: true,
+//     brand: 'Land Rover',
+//     year: 2021,
+//     country: 'UK'
+//   },
+//   {
+//     id: '20',
+//     name: 'Lọc gió thể thao - Porsche Cayenne',
+//     price: 1500000,
+//     originalPrice: 1800000,
+//     discount: 17,
+//       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
+
+//     category: 'Bộ Lọc Không Khí',
+//     inStock: true,
+//     brand: 'Porsche',
+//     year: 2022,
+//     country: 'Germany'
+//   }
+// ];
 export const products: Product[] = [
   {
     id: '1',
@@ -10,55 +292,63 @@ export const products: Product[] = [
     price: 299000,
     originalPrice: 350000,
     discount: 15,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'Chevrolet',
     year: 2022,
-    country: 'USA'
+    country: 'USA',
+    createdAt: '2023-12-05T10:30:00Z',
+    sold: 120,
+    featured: true
   },
   {
-    id: '2', 
+    id: '2',
     name: 'Lọc dầu động cơ Oil Filter - Toyota Camry',
     price: 199000,
     originalPrice: 249000,
     discount: 20,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Dầu',
     inStock: true,
     brand: 'Toyota',
     year: 2023,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2025-02-10T14:20:00Z',
+    sold: 230,
+    featured: true
   },
   {
     id: '3',
-    name: 'Lọc nhiên liệu Fuel Filter - Honda Civic', 
+    name: 'Lọc nhiên liệu Fuel Filter - Honda Civic',
     price: 259000,
     originalPrice: 299000,
     discount: 13,
-        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Nhiên Liệu',
     inStock: true,
     brand: 'Honda',
     year: 2021,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2023-10-22T09:00:00Z',
+    sold: 87,
+    featured: false
   },
   {
     id: '4',
     name: 'Lọc cabin Cabin Filter - Mazda CX-5',
     price: 189000,
-    originalPrice: 220000, 
+    originalPrice: 220000,
     discount: 14,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Trong Cabin',
     inStock: true,
     brand: 'Mazda',
     year: 2022,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2023-11-15T08:00:00Z',
+    sold: 165,
+    featured: true
   },
   {
     id: '5',
@@ -66,13 +356,15 @@ export const products: Product[] = [
     price: 899000,
     originalPrice: 1099000,
     discount: 18,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'BMW',
     year: 2020,
-    country: 'Germany'
+    country: 'Germany',
+    createdAt: '2022-12-01T16:45:00Z',
+    sold: 45,
+    featured: false
   },
   {
     id: '6',
@@ -80,13 +372,15 @@ export const products: Product[] = [
     price: 250000,
     originalPrice: 300000,
     discount: 17,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'Hyundai',
     year: 2021,
-    country: 'Korea'
+    country: 'Korea',
+    createdAt: '2024-01-08T12:00:00Z',
+    sold: 190,
+    featured: true
   },
   {
     id: '7',
@@ -94,13 +388,15 @@ export const products: Product[] = [
     price: 220000,
     originalPrice: 270000,
     discount: 19,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Dầu',
     inStock: true,
     brand: 'Ford',
     year: 2023,
-    country: 'USA'
+    country: 'USA',
+    createdAt: '2024-04-02T15:00:00Z',
+    sold: 102,
+    featured: false
   },
   {
     id: '8',
@@ -108,13 +404,15 @@ export const products: Product[] = [
     price: 280000,
     originalPrice: 320000,
     discount: 13,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Nhiên Liệu',
     inStock: true,
     brand: 'Mitsubishi',
     year: 2022,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2023-08-12T10:30:00Z',
+    sold: 95,
+    featured: false
   },
   {
     id: '9',
@@ -122,13 +420,15 @@ export const products: Product[] = [
     price: 210000,
     originalPrice: 250000,
     discount: 16,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Trong Cabin',
     inStock: true,
     brand: 'Toyota',
     year: 2021,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2024-03-25T11:15:00Z',
+    sold: 155,
+    featured: true
   },
   {
     id: '10',
@@ -137,12 +437,14 @@ export const products: Product[] = [
     originalPrice: 1150000,
     discount: 17,
     image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-  
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'Subaru',
     year: 2022,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2023-09-18T09:00:00Z',
+    sold: 33,
+    featured: false
   },
   {
     id: '11',
@@ -150,13 +452,15 @@ export const products: Product[] = [
     price: 1200000,
     originalPrice: 1400000,
     discount: 14,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'Mercedes',
     year: 2023,
-    country: 'Germany'
+    country: 'Germany',
+    createdAt: '2023-07-30T13:10:00Z',
+    sold: 28,
+    featured: false
   },
   {
     id: '12',
@@ -164,13 +468,15 @@ export const products: Product[] = [
     price: 230000,
     originalPrice: 280000,
     discount: 18,
-        image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Dầu',
     inStock: true,
     brand: 'Kia',
     year: 2022,
-    country: 'Korea'
+    country: 'Korea',
+    createdAt: '2023-06-19T17:00:00Z',
+    sold: 118,
+    featured: true
   },
   {
     id: '13',
@@ -178,13 +484,15 @@ export const products: Product[] = [
     price: 320000,
     originalPrice: 380000,
     discount: 16,
-       image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Nhiên Liệu',
     inStock: true,
     brand: 'Volkswagen',
     year: 2021,
-    country: 'Germany'
+    country: 'Germany',
+    createdAt: '2023-11-02T08:20:00Z',
+    sold: 72,
+    featured: false
   },
   {
     id: '14',
@@ -192,13 +500,15 @@ export const products: Product[] = [
     price: 195000,
     originalPrice: 230000,
     discount: 15,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Trong Cabin',
     inStock: true,
     brand: 'Nissan',
     year: 2022,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2024-05-10T13:00:00Z',
+    sold: 88,
+    featured: true
   },
   {
     id: '15',
@@ -206,13 +516,15 @@ export const products: Product[] = [
     price: 1100000,
     originalPrice: 1300000,
     discount: 15,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'Audi',
     year: 2023,
-    country: 'Germany'
+    country: 'Germany',
+    createdAt: '2023-10-01T10:30:00Z',
+    sold: 54,
+    featured: false
   },
   {
     id: '16',
@@ -220,13 +532,15 @@ export const products: Product[] = [
     price: 850000,
     originalPrice: 950000,
     discount: 11,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'Lexus',
     year: 2021,
-    country: 'Japan'
+    country: 'Japan',
+    createdAt: '2023-08-08T11:45:00Z',
+    sold: 64,
+    featured: false
   },
   {
     id: '17',
@@ -234,13 +548,15 @@ export const products: Product[] = [
     price: 270000,
     originalPrice: 320000,
     discount: 16,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Dầu',
     inStock: true,
     brand: 'Peugeot',
     year: 2022,
-    country: 'France'
+    country: 'France',
+    createdAt: '2023-12-20T09:15:00Z',
+    sold: 132,
+    featured: true
   },
   {
     id: '18',
@@ -248,13 +564,15 @@ export const products: Product[] = [
     price: 350000,
     originalPrice: 400000,
     discount: 13,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Nhiên Liệu',
     inStock: true,
     brand: 'Volvo',
     year: 2023,
-    country: 'Sweden'
+    country: 'Sweden',
+    createdAt: '2024-01-28T16:10:00Z',
+    sold: 77,
+    featured: false
   },
   {
     id: '19',
@@ -262,13 +580,15 @@ export const products: Product[] = [
     price: 310000,
     originalPrice: 370000,
     discount: 16,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Trong Cabin',
     inStock: true,
     brand: 'Land Rover',
     year: 2021,
-    country: 'UK'
+    country: 'UK',
+    createdAt: '2024-06-15T10:30:00Z',
+    sold: 61,
+    featured: false
   },
   {
     id: '20',
@@ -276,15 +596,18 @@ export const products: Product[] = [
     price: 1500000,
     originalPrice: 1800000,
     discount: 17,
-      image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
-
+    image: 'https://product.hstatic.net/1000288684/product/loi_loc_giay_busch_6a379665f5ae41749a8be04ed833f49c_large.png',
     category: 'Bộ Lọc Không Khí',
     inStock: true,
     brand: 'Porsche',
     year: 2022,
-    country: 'Germany'
+    country: 'Germany',
+    createdAt: '2023-09-05T14:00:00Z',
+    sold: 42,
+    featured: true
   }
 ];
+
 export const categories: Category[] = [
   {
     id: '1',

@@ -2,7 +2,12 @@ import { ChevronDownIcon } from 'lucide-react'
 import React, { useState } from 'react'
 import { TagButton } from '../../components/ui/buttons/TagButton'
 
-const ProductHeader: React.FC = () => {
+interface ProductHeaderProps {
+  onFilterChange: (filter: string) => void
+  onSortChange: (sort: string) => void
+}
+
+const ProductHeader: React.FC<ProductHeaderProps> = ({ onFilterChange, onSortChange }) => {
   const [activeFilter, setActiveFilter] = useState('Liên quan')
   const [priceSort, setPriceSort] = useState('Giá: Thấp → Cao')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -11,11 +16,14 @@ const ProductHeader: React.FC = () => {
   const priceOptions = ['Giá: Thấp → Cao', 'Giá: Cao → Thấp']
 
   const handleFilterClick = (filter: string) => {
+    console.log(filter)
     setActiveFilter(filter)
+    onFilterChange(filter)
   }
 
   const handlePriceSort = (option: string) => {
     setPriceSort(option)
+    onSortChange(option)
     setIsDropdownOpen(false)
   }
 

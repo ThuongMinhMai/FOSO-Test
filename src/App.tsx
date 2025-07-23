@@ -1,12 +1,19 @@
-import PromoBanner from './components/ui/banner/PromoBanner'
-import ProductGrid from './features/product/ProductGrid'
-import Footer from './components/layout/Footer'
+import { useEffect } from 'react'
 import ScrollToTop from './components/common/ScrollToTop'
-import Sidebar from './components/layout/Sidebar'
-import ShippingBenefits from './features/shipping/ShippingBenefits'
+import Footer from './components/layout/Footer'
 import Header from './components/layout/header/Header'
+import Sidebar from './components/layout/Sidebar'
+import PromoBanner from './components/ui/banner/PromoBanner'
+import { useProductContext } from './contexts/ProductContext'
+import ProductGrid from './features/product/ProductGrid'
+import ShippingBenefits from './features/shipping/ShippingBenefits'
 
 function App() {
+  const { loadProducts } = useProductContext()
+  useEffect(() => {
+    loadProducts()
+  }, [])
+
   return (
     <div className='min-h-screen bg-gray-50'>
       <Header />

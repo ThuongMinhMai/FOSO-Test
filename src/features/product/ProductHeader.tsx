@@ -26,6 +26,7 @@ const ProductHeader: React.FC<ProductHeaderProps> = ({ onFilterChange, onSortCha
     onSortChange(option)
     setIsDropdownOpen(false)
   }
+  const isPriceSortDisabled = activeFilter === 'Bán chạy' || activeFilter === 'Mới nhất'
 
   return (
     <div className='w-full border-b bg-white border-gray-200 sticky top-0 z-10 rounded-t-lg'>
@@ -45,31 +46,35 @@ const ProductHeader: React.FC<ProductHeaderProps> = ({ onFilterChange, onSortCha
           </div>
 
           <div className='relative'>
-            <button
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className='flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors duration-200'
-            >
-              <span>{priceSort}</span>
-              <ChevronDownIcon
-                className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
+    
 
-            {isDropdownOpen && (
-              <div className='absolute right-0 top-full mt-1 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-20'>
-                {priceOptions.map((option) => (
-                  <button
-                    key={option}
-                    onClick={() => handlePriceSort(option)}
-                    className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-50 transition-colors duration-150 ${
-                      priceSort === option ? 'text-primary bg-blue-50' : 'text-gray-700'
-                    }`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            )}
+            <div className={`relative ${isPriceSortDisabled ? 'hidden' : ''}`}>
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className='flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors duration-200'
+              >
+                <span>{priceSort}</span>
+                <ChevronDownIcon
+                  className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {isDropdownOpen && (
+                <div className='absolute right-0 top-full mt-1 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-20'>
+                  {priceOptions.map((option) => (
+                    <button
+                      key={option}
+                      onClick={() => handlePriceSort(option)}
+                      className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-50 transition-colors duration-150 ${
+                        priceSort === option ? 'text-primary bg-blue-50' : 'text-gray-700'
+                      }`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 

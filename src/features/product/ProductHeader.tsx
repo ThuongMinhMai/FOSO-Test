@@ -2,6 +2,7 @@ import { ChevronDownIcon } from 'lucide-react'
 import React, { useState } from 'react'
 import { TagButton } from '../../components/ui/buttons/TagButton'
 
+
 interface ProductHeaderProps {
   onFilterChange: (filter: string) => void
   onSortChange: (sort: string) => void

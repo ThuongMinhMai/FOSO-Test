@@ -14,6 +14,8 @@ interface ProductContextType {
   setSort: (sort: SortType) => void
   searchTerm: string
   setSearchTerm: (term: string) => void
+  selectedCategories: string[]
+  toggleCategory: (categoryId: string) => void
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined)
@@ -26,7 +28,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [filter, setFilter] = useState<FilterType>('Liên quan')
   const [sort, setSort] = useState<SortType>('Giá: Thấp → Cao')
   const [searchTerm, setSearchTerm] = useState('')
-
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const simulateApiCall = useCallback((pageNum: number): Promise<Product[]> => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -73,12 +75,15 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   }, [])
 
   const filteredProducts = useMemo(() => {
-    console.log('omd', searchTerm)
+    console.log('omd', selectedCategories)
     let result = [...products]
     if (searchTerm.trim() !== '') {
       result = result.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
     }
-
+    if (selectedCategories.length > 0) {
+      result = result.filter((product) => selectedCategories.includes(product.category))
+      console.log("filter", result)
+    }
     switch (filter) {
       case 'Nổi bật':
         result = result.filter((p) => p.featured)
@@ -109,8 +114,12 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return result
-  }, [products, filter, sort, searchTerm])
-
+  }, [products, filter, sort, searchTerm, selectedCategories])
+  const toggleCategory = useCallback((categoryId: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(categoryId) ? prev.filter((id) => id !== categoryId) : [...prev, categoryId]
+    )
+  }, [])
   return (
     <ProductContext.Provider
       value={{
@@ -122,7 +131,9 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         setFilter,
         setSort,
         searchTerm,
-        setSearchTerm
+        setSearchTerm,
+        selectedCategories,
+        toggleCategory
       }}
     >
       {children}

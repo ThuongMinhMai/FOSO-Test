@@ -27,9 +27,8 @@ function Sidebar() {
       <div className='flex items-center justify-between mb-6'>
         <div className='flex items-center'>
           <Filter className='mr-2 text-primary' size={20} />
-          <h2 className='text-lg font-semibold text-gray-800'>Bộ lọc sản phẩm</h2>
+          <h2 className='text-lg font-bold text-primary'>Bộ lọc sản phẩm</h2>
         </div>
-        <button className='text-sm text-primary hover:text-secondary transition-colors duration-200'>Đặt lại</button>
       </div>
 
       <CategoryFilter categories={categories} open={openSections.category} toggle={() => toggleSection('category')} />

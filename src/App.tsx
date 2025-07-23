@@ -9,10 +9,10 @@ import ProductGrid from './features/product/ProductGrid'
 import ShippingBenefits from './features/shipping/ShippingBenefits'
 
 function App() {
-  const { loadProducts } = useProductContext()
-  useEffect(() => {
-    loadProducts()
-  }, [])
+  // const { loadProducts } = useProductContext()
+  // useEffect(() => {
+  //   loadProducts()
+  // }, [])
   const productGridRef = useRef<HTMLDivElement>(null)
   return (
     <div className='min-h-screen bg-gray-50'>

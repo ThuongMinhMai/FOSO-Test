@@ -1,11 +1,11 @@
 import { useRef } from 'react'
-import Footer from './components/layout/Footer'
-import Header from './components/layout/header/Header'
 import PromoBanner from './components/ui/banner/PromoBanner'
-import Sidebar from './components/layout/Sidebar'
 import ProductGrid from './features/product/ProductGrid'
 import ShippingBenefits from './features/shipping/ShippingBenefits'
 import ScrollToTop from './components/common/ScrollToTop'
+import Sidebar from './components/layout/Sidebar'
+import Header from './components/layout/header/Header'
+import Footer from './components/layout/Footer'
 
 function App() {
   const productGridRef = useRef<HTMLDivElement>(null)

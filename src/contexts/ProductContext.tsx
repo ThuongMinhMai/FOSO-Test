@@ -16,6 +16,8 @@ interface ProductContextType {
   setSearchTerm: (term: string) => void
   selectedCategories: string[]
   toggleCategory: (categoryId: string) => void
+  selectedPriceRange: { min: number; max: number } | null
+  setSelectedPriceRange: (range: { min: number; max: number } | null) => void
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined)
@@ -29,6 +31,8 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [sort, setSort] = useState<SortType>('Giá: Thấp → Cao')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const [selectedPriceRange, setSelectedPriceRange] = useState<{ min: number; max: number } | null>(null)
+
   const simulateApiCall = useCallback((pageNum: number): Promise<Product[]> => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -82,7 +86,11 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     }
     if (selectedCategories.length > 0) {
       result = result.filter((product) => selectedCategories.includes(product.category))
-      console.log("filter", result)
+      console.log('filter', result)
+    }
+    if (selectedPriceRange) {
+      const { min, max } = selectedPriceRange
+      result = result.filter((product) => product.price >= min && product.price <= max)
     }
     switch (filter) {
       case 'Nổi bật':
@@ -114,7 +122,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return result
-  }, [products, filter, sort, searchTerm, selectedCategories])
+  }, [products, filter, sort, searchTerm, selectedCategories,selectedPriceRange])
   const toggleCategory = useCallback((categoryId: string) => {
     setSelectedCategories((prev) =>
       prev.includes(categoryId) ? prev.filter((id) => id !== categoryId) : [...prev, categoryId]
@@ -133,7 +141,9 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         searchTerm,
         setSearchTerm,
         selectedCategories,
-        toggleCategory
+        toggleCategory,
+        selectedPriceRange,
+        setSelectedPriceRange
       }}
     >
       {children}

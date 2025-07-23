@@ -4,6 +4,7 @@ import { categories, products } from '../../data/mockData'
 import CategoryFilter from '../../features/product/filter/CategoryFilter'
 import PriceFilter from '../../features/product/filter/PriceFilter'
 import CheckboxGroup from '../../features/product/filter/CheckboxGroup'
+import { useProductContext } from '../../contexts/ProductContext'
 
 function Sidebar() {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
@@ -33,7 +34,11 @@ function Sidebar() {
 
       <CategoryFilter categories={categories} open={openSections.category} toggle={() => toggleSection('category')} />
 
-      <PriceFilter open={openSections.price} toggle={() => toggleSection('price')} />
+      <PriceFilter
+        open={openSections.price}
+        toggle={() => toggleSection('price')}
+      
+      />
 
       <CheckboxGroup
         title='Thương hiệu'

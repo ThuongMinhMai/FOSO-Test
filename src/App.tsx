@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import ScrollToTop from './components/common/ScrollToTop'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/header/Header'
@@ -13,15 +13,15 @@ function App() {
   useEffect(() => {
     loadProducts()
   }, [])
-
+  const productGridRef = useRef<HTMLDivElement>(null)
   return (
     <div className='min-h-screen bg-gray-50'>
-      <Header />
+      <Header scrollToProductGrid={() => productGridRef.current?.scrollIntoView({ behavior: 'smooth' })} />
       <PromoBanner />
       <div className='max-w-7xl mx-auto flex mt-10'>
         <Sidebar />
         <main className='flex justify-center items-start'>
-          <ProductGrid />
+          <ProductGrid ref={productGridRef} />
         </main>
       </div>
       <ShippingBenefits />

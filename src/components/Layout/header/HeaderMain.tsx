@@ -2,9 +2,24 @@ import { Camera, Search, CircleUserRound } from 'lucide-react'
 import logo from '../../../assets/logo.png'
 import CartDropDown from '../../../features/cart/CartDropDown'
 import { useState } from 'react'
-import { useProducts } from '../../../hooks/useProducts'
+import { useProductContext } from '../../../contexts/ProductContext'
 
-const HeaderMain = () => {
+const HeaderMain = ({ scrollToProductGrid }: { scrollToProductGrid: () => void }) => {
+  const { setSearchTerm } = useProductContext()
+  const [inputValue, setInputValue] = useState('')
+
+  const handleSearch = () => {
+    const trimmed = inputValue.trim()
+    if (!trimmed) return
+    setSearchTerm(trimmed)
+    scrollToProductGrid()
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
 
   return (
     <div className='left-0 w-full z-50 bg-white'>
@@ -19,14 +34,19 @@ const HeaderMain = () => {
               <input
                 type='text'
                 placeholder='Tìm kiếm sản phẩm...'
-               
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyDown={handleKeyDown}
                 className='w-full h-12 px-4 py-2 pl-4 pr-12 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent'
               />
               <div className='absolute right-2 top-1/2 transform -translate-y-1/2 flex'>
                 <button className='text-black hover:text-primary mr-4'>
                   <Camera size={24} />
                 </button>
-                <button className='rounded-3xl px-5 bg-secondary text-white p-2 hover:bg-primary transition-colors'>
+                <button
+                  className='rounded-3xl px-5 bg-secondary text-white p-2 hover:bg-primary transition-colors'
+                  onClick={handleSearch}
+                >
                   <Search size={24} />
                 </button>
               </div>

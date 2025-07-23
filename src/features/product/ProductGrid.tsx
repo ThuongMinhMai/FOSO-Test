@@ -4,13 +4,14 @@ import ProductCard from './ProductCard.tsx'
 import ProductHeader from './ProductHeader.tsx'
 import { useProductContext } from '../../contexts/ProductContext.tsx'
 import { FilterType, SortType } from '../../types/index.ts'
+import { forwardRef } from 'react'
 
-function ProductGrid() {
+const ProductGrid = forwardRef<HTMLDivElement>((props, ref) => {
   const { products, isLoading, hasMore, loadProducts, setFilter, setSort } = useProductContext()
 
   const FILTERS: FilterType[] = ['Liên quan', 'Mới nhất', 'Bán chạy', 'Nổi bật']
   return (
-    <div className='max-w-7xl mx-auto px-4 flex flex-col items-center justify-center'>
+    <div ref={ref} className='max-w-7xl mx-auto px-4 flex flex-col items-center justify-center'>
       <ProductHeader
         onFilterChange={(val) => {
           if (FILTERS.includes(val as FilterType)) {
@@ -62,6 +63,5 @@ function ProductGrid() {
       </InfiniteScroll>
     </div>
   )
-}
-
+})
 export default ProductGrid

@@ -12,6 +12,8 @@ interface ProductContextType {
   resetProducts: () => void
   setFilter: (filter: FilterType) => void
   setSort: (sort: SortType) => void
+  searchTerm: string
+  setSearchTerm: (term: string) => void
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined)
@@ -23,6 +25,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [page, setPage] = useState(0)
   const [filter, setFilter] = useState<FilterType>('Liên quan')
   const [sort, setSort] = useState<SortType>('Giá: Thấp → Cao')
+  const [searchTerm, setSearchTerm] = useState('')
 
   const simulateApiCall = useCallback((pageNum: number): Promise<Product[]> => {
     return new Promise((resolve) => {
@@ -70,7 +73,11 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   }, [])
 
   const filteredProducts = useMemo(() => {
+    console.log('omd', searchTerm)
     let result = [...products]
+    if (searchTerm.trim() !== '') {
+      result = result.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    }
 
     switch (filter) {
       case 'Nổi bật':
@@ -102,7 +109,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return result
-  }, [products, filter, sort])
+  }, [products, filter, sort, searchTerm])
 
   return (
     <ProductContext.Provider
@@ -113,7 +120,9 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         loadProducts,
         resetProducts,
         setFilter,
-        setSort
+        setSort,
+        searchTerm,
+        setSearchTerm
       }}
     >
       {children}

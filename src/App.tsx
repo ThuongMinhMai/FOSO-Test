@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import ScrollToTop from './components/common/ScrollToTop'
-import Header from './components/layout/header/Header.tsx'
+import Header from './components/layout/header/Header'
 import Sidebar from './components/layout/Sidebar'
 import PromoBanner from './components/ui/banner/PromoBanner'
 import ProductGrid from './features/product/ProductGrid'

@@ -7,6 +7,9 @@ import CheckboxGroup from '../../features/product/filter/CheckboxGroup'
 import { useProductContext } from '../../contexts/ProductContext'
 
 function Sidebar() {
+  const { selectedBrands, toggleBrand, selectedYears, toggleYear, selectedCountries, toggleCountry } =
+    useProductContext()
+
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     category: true,
     price: true,
@@ -34,24 +37,31 @@ function Sidebar() {
 
       <CategoryFilter categories={categories} open={openSections.category} toggle={() => toggleSection('category')} />
 
-      <PriceFilter
-        open={openSections.price}
-        toggle={() => toggleSection('price')}
-      
-      />
+      <PriceFilter open={openSections.price} toggle={() => toggleSection('price')} />
 
       <CheckboxGroup
         title='Thương hiệu'
         items={brands}
+        selectedValues={selectedBrands}
+        toggleValue={toggleBrand}
         open={openSections.brand}
         toggle={() => toggleSection('brand')}
       />
 
-      <CheckboxGroup title='Năm sản xuất' items={years} open={openSections.year} toggle={() => toggleSection('year')} />
+      <CheckboxGroup
+        title='Năm sản xuất'
+        items={years}
+        selectedValues={selectedYears}
+        toggleValue={toggleYear}
+        open={openSections.year}
+        toggle={() => toggleSection('year')}
+      />
 
       <CheckboxGroup
         title='Xuất xứ'
         items={countries}
+        selectedValues={selectedCountries}
+        toggleValue={toggleCountry}
         open={openSections.country}
         toggle={() => toggleSection('country')}
       />

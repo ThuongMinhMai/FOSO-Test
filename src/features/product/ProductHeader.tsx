@@ -46,8 +46,6 @@ const ProductHeader: React.FC<ProductHeaderProps> = ({ onFilterChange, onSortCha
           </div>
 
           <div className='relative'>
-    
-
             <div className={`relative ${isPriceSortDisabled ? 'hidden' : ''}`}>
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -78,7 +76,6 @@ const ProductHeader: React.FC<ProductHeaderProps> = ({ onFilterChange, onSortCha
           </div>
         </div>
 
-        {/* Mobile filter buttons */}
         <div className='md:hidden pb-3'>
           <div className='flex items-center space-x-2 overflow-x-auto'>
             {filterOptions.map((filter) => (

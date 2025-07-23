@@ -1,14 +1,15 @@
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import { Transition, Checkbox } from '@headlessui/react'
-
 interface CheckboxGroupProps {
   title: string
   items: (string | number)[]
+  selectedValues: (string | number)[]
+  toggleValue: (val: any) => void
   open: boolean
   toggle: () => void
 }
 
-const CheckboxGroup = ({ title, items, open, toggle }: CheckboxGroupProps) => (
+const CheckboxGroup = ({ title, items, open, toggle, selectedValues, toggleValue }: CheckboxGroupProps) => (
   <div className='mb-6 border-b border-gray-200 pb-4'>
     <button className='flex justify-between items-center w-full group' onClick={toggle}>
       <h3 className='font-medium text-gray-800 group-hover:text-primary'>{title}</h3>
@@ -22,7 +23,13 @@ const CheckboxGroup = ({ title, items, open, toggle }: CheckboxGroupProps) => (
     <Transition show={open} enter='transition-opacity duration-200' leave='transition-opacity duration-200'>
       <div className='mt-3 space-y-2 max-h-60 overflow-y-auto custom-scrollbar'>
         {items.map((item, index) => (
-          <Checkbox key={index} defaultChecked={false} className='group flex items-center'>
+          <Checkbox
+            key={index}
+            checked={selectedValues.includes(item)}
+            onChange={() => toggleValue(item)}
+            defaultChecked={false}
+            className='group flex items-center'
+          >
             {({ checked }) => (
               <>
                 <div

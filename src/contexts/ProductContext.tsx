@@ -18,6 +18,12 @@ interface ProductContextType {
   toggleCategory: (categoryId: string) => void
   selectedPriceRange: { min: number; max: number } | null
   setSelectedPriceRange: (range: { min: number; max: number } | null) => void
+  selectedBrands: string[]
+  toggleBrand: (brand: string) => void
+  selectedYears: number[]
+  toggleYear: (year: number) => void
+  selectedCountries: string[]
+  toggleCountry: (country: string) => void
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined)
@@ -32,6 +38,9 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selectedPriceRange, setSelectedPriceRange] = useState<{ min: number; max: number } | null>(null)
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([])
+  const [selectedYears, setSelectedYears] = useState<number[]>([])
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([])
 
   const simulateApiCall = useCallback((pageNum: number): Promise<Product[]> => {
     return new Promise((resolve) => {
@@ -79,18 +88,27 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   }, [])
 
   const filteredProducts = useMemo(() => {
-    console.log('omd', selectedCategories)
     let result = [...products]
     if (searchTerm.trim() !== '') {
       result = result.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
     }
     if (selectedCategories.length > 0) {
       result = result.filter((product) => selectedCategories.includes(product.category))
-      console.log('filter', result)
     }
     if (selectedPriceRange) {
       const { min, max } = selectedPriceRange
       result = result.filter((product) => product.price >= min && product.price <= max)
+    }
+    if (selectedBrands.length > 0) {
+      result = result.filter((product) => selectedBrands.includes(product.brand))
+    }
+
+    if (selectedYears.length > 0) {
+      result = result.filter((product) => selectedYears.includes(product.year))
+    }
+
+    if (selectedCountries.length > 0) {
+      result = result.filter((product) => selectedCountries.includes(product.country))
     }
     switch (filter) {
       case 'Nổi bật':
@@ -109,10 +127,8 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 
         return dateB - dateA
       })
-      console.log('Sorted by Mới nhất', result)
     } else if (filter === 'Bán chạy') {
       result = result.sort((a, b) => (b.sold ?? 0) - (a.sold ?? 0))
-      console.log('Sorted by Bán chạy', result)
     } else {
       if (sort === 'Giá: Thấp → Cao') {
         result.sort((a, b) => a.price - b.price)
@@ -122,11 +138,32 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return result
-  }, [products, filter, sort, searchTerm, selectedCategories,selectedPriceRange])
+  }, [
+    products,
+    filter,
+    sort,
+    searchTerm,
+    selectedCategories,
+    selectedPriceRange,
+    selectedBrands,
+    selectedCountries,
+    selectedYears
+  ])
   const toggleCategory = useCallback((categoryId: string) => {
     setSelectedCategories((prev) =>
       prev.includes(categoryId) ? prev.filter((id) => id !== categoryId) : [...prev, categoryId]
     )
+  }, [])
+  const toggleBrand = useCallback((brand: string) => {
+    setSelectedBrands((prev) => (prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]))
+  }, [])
+
+  const toggleYear = useCallback((year: number) => {
+    setSelectedYears((prev) => (prev.includes(year) ? prev.filter((y) => y !== year) : [...prev, year]))
+  }, [])
+
+  const toggleCountry = useCallback((country: string) => {
+    setSelectedCountries((prev) => (prev.includes(country) ? prev.filter((c) => c !== country) : [...prev, country]))
   }, [])
   return (
     <ProductContext.Provider
@@ -143,7 +180,13 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         selectedCategories,
         toggleCategory,
         selectedPriceRange,
-        setSelectedPriceRange
+        setSelectedPriceRange,
+        selectedBrands,
+        toggleBrand,
+        selectedYears,
+        toggleYear,
+        selectedCountries,
+        toggleCountry
       }}
     >
       {children}

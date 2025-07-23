@@ -1,4 +1,3 @@
-
 import { ChevronDown, MapPinned, MoveRight } from 'lucide-react'
 import React from 'react'
 
@@ -14,7 +13,7 @@ const Footer: React.FC = () => {
             </div>
             <button className='flex bg-white px-3 py-2 rounded-full items-center justify-center space-x-1 text-primary text-sm font-medium hover:text-secondary transition-colors'>
               <span>Xem ngay</span>
-               <MoveRight className='text-primary' size={16} />
+              <MoveRight className='text-primary' size={16} />
             </button>
           </div>
         </div>
@@ -27,10 +26,19 @@ const Footer: React.FC = () => {
               VIET HUNG AUTO PRODUCTION TRADING JOINT STOCK COMPANY
             </h3>
             <div className='space-y-2 text-sm text-gray-600'>
-              <p>Tax code: 0305094228</p>
-              <p>Address: 19 Nghia Thuc, Ward 05, District 5, Ho Chi Minh City, Viet Nam</p>
-              <p>Phone number: 0283 760 7607</p>
-              <p>Opening hour: 09:00 - 22:00 from Mon - Fri</p>
+              <p>
+                Tax code: <span className='font-medium'>0305094228</span>
+              </p>
+              <p>
+                Address:{' '}
+                <span className='font-medium'>19 Nghia Thuc, Ward 05, District 5, Ho Chi Minh City, Viet Nam</span>
+              </p>
+              <p>
+                Phone number: <span className='font-medium'>0283 760 7607</span>
+              </p>
+              <p>
+                Opening hour: <span className='font-medium'>09:00 - 22:00 from Mon - Fri</span>
+              </p>
             </div>
 
             <div className='mt-6'>
@@ -107,7 +115,6 @@ const Footer: React.FC = () => {
           <div>
             <h3 className='text-sm font-semibold text-gray-900 mb-4'>Download App</h3>
             <div className='space-y-3'>
-              {/* Google Play Store */}
               <a href='#' className='block'>
                 <div className='bg-black text-white rounded-lg px-4 py-2 flex items-center space-x-3 hover:bg-gray-800 transition-colors'>
                   <svg className='w-6 h-6' viewBox='0 0 24 24' fill='currentColor'>

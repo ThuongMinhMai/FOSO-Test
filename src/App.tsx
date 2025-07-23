@@ -1,18 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import ScrollToTop from './components/common/ScrollToTop'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/header/Header'
 import Sidebar from './components/layout/Sidebar'
 import PromoBanner from './components/ui/banner/PromoBanner'
-import { useProductContext } from './contexts/ProductContext'
 import ProductGrid from './features/product/ProductGrid'
 import ShippingBenefits from './features/shipping/ShippingBenefits'
 
 function App() {
-  // const { loadProducts } = useProductContext()
-  // useEffect(() => {
-  //   loadProducts()
-  // }, [])
+
   const productGridRef = useRef<HTMLDivElement>(null)
   return (
     <div className='min-h-screen bg-gray-50'>

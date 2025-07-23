@@ -5,7 +5,7 @@ import Sidebar from './components/layout/Sidebar'
 import PromoBanner from './components/ui/banner/PromoBanner'
 import ProductGrid from './features/product/ProductGrid'
 import ShippingBenefits from './features/shipping/ShippingBenefits'
-import Footer from './components/layout/Footer'
+import Footer from './components/layout/Footer.tsx'
 
 function App() {
   const productGridRef = useRef<HTMLDivElement>(null)
